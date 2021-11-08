@@ -28,3 +28,8 @@ Nous devons implémenter les fonctionnalitées suivantes :
 
 
 // TODO later 
+
+
+<br> <br>
+
+<a href="https://github.com/Darylabrador/Simplon_UML_GENERATOR/tree/ressources"> Ressources du projet </a>
