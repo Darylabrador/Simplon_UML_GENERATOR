@@ -3,19 +3,13 @@
 <?import com.yworks.yfiles.view.GraphControl?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="umlgenerator.FXMLController">
    <children>
@@ -28,6 +22,7 @@
             </Label>
             <Line endX="-71.0" endY="25.0" layoutX="186.0" layoutY="24.0" startX="-71.0" startY="-4.0" />
             <Button layoutX="157.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+                 <tooltip><Tooltip text="Explorer un dossier" /></tooltip>
                 <graphic>
                     <ImageView>
                         <Image url="@../images/open_folder.png" />
@@ -35,6 +30,7 @@
                 </graphic>
             </Button>
             <Button layoutX="223.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+                 <tooltip><Tooltip text="Exporter en tant que..." /></tooltip>
                 <graphic>
                     <ImageView>
                         <Image url="@../images/export.png" />
@@ -42,6 +38,7 @@
                 </graphic>
             </Button>
             <Button layoutX="290.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+                 <tooltip><Tooltip text="Créer une entité" /></tooltip>
                 <graphic>
                     <ImageView>
                         <Image url="@../images/create_entity.png" />
@@ -50,6 +47,7 @@
             </Button>
             <Line endX="-71.0" endY="26.0" layoutX="436.0" layoutY="23.0" startX="-71.0" startY="-4.0" />
             <Button layoutX="409.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+                 <tooltip><Tooltip text="Relation One to One" /></tooltip>
                 <graphic>
                     <ImageView>
                         <Image url="@../images/relation1to1.png" />
@@ -57,6 +55,7 @@
                 </graphic>
             </Button>
             <Button layoutX="500.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+                 <tooltip><Tooltip text="Relation One to Many" /></tooltip>
                 <graphic>
                     <ImageView>
                         <Image url="@../images/relation1toN.png" />
@@ -64,6 +63,7 @@
                 </graphic>
             </Button>
             <Button layoutX="582.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+                 <tooltip><Tooltip text="Relation Many to Many" /></tooltip>
                 <graphic>
                     <ImageView>
                         <Image url="@../images/relationNtoM.png" />
@@ -72,6 +72,6 @@
             </Button>
          </children>
       </Pane>
-      <GraphControl fx:id="graphControl" layoutY="49.0" prefHeight="654.0" prefWidth="1000.0" />
+      <GraphControl fx:id="graphControl" layoutY="49.0" maxWidth="1000.0" prefHeight="651.0" prefWidth="1000.0" style="-fx-max-width: 100%;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="49.0" />
    </children>
 </AnchorPane>
