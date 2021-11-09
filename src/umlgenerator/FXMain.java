@@ -20,14 +20,15 @@ import javafx.stage.Stage;
 public class FXMain extends Application {
     
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/umlgenerator/FXML.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        primaryStage.setTitle("UMLGenerator");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/umlgenerator/FXML.fxml"));
+        Parent root = fxmlLoader.load();
+        Scene scene = new Scene(root, 1365, 768);
+
+        stage.setOnShown(windowEvent -> fxmlLoader.<FXMLController>getController().onLoaded());
+        stage.setTitle("UMLGenerator");
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**

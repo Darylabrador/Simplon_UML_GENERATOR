@@ -20,15 +20,12 @@ Nous devons implémenter les fonctionnalitées suivantes :
 - Permettre l'export vers votre propres extension de fichier (ouvrable par votre app)
 - Extra : Ouvrir un dossier laravel, analyser le code de migration, créer l'UML dynamiquement, pouvoir déplacer les vues pour le rendre lisible
 
+
 ## Initialisation du projet
 
-// TODO later
+Il vous fait les librairies suivantes  : 
 
-## Génération de l'application
-
-
-// TODO later 
-
+- <a href="https://docs.yworks.com/yfilesjavafx/doc/api/#/dguide/getting_started-application"> yFiles JavaFX </a>
 
 <br> <br>
 
