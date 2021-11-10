@@ -4,18 +4,28 @@
  */
 package umlgenerator;
 
+import com.yworks.yfiles.geometry.IRectangle;
+import com.yworks.yfiles.geometry.InsetsD;
 import com.yworks.yfiles.geometry.PointD;
 import com.yworks.yfiles.geometry.RectD;
 import com.yworks.yfiles.graph.IBend;
+import com.yworks.yfiles.graph.IColumn;
 import com.yworks.yfiles.graph.IEdge;
 import com.yworks.yfiles.graph.IGraph;
 import com.yworks.yfiles.graph.ILabel;
 import com.yworks.yfiles.graph.INode;
 import com.yworks.yfiles.graph.IPort;
+import com.yworks.yfiles.graph.IRow;
+import com.yworks.yfiles.graph.ITable;
+import com.yworks.yfiles.graph.Table;
 import com.yworks.yfiles.graph.portlocationmodels.FreeNodePortLocationModel;
+import com.yworks.yfiles.graph.styles.TableNodeStyle;
 import com.yworks.yfiles.view.GraphControl;
+import com.yworks.yfiles.view.input.GraphEditorInputMode;
+import com.yworks.yfiles.view.input.MoveViewportInputMode;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 
@@ -25,34 +35,42 @@ import javafx.fxml.Initializable;
  * @author charl
  */
 public class FXMLController  {
+    public GraphControl graphControl;
+    
+    public void initialize() {
+      // Called by the JavaFX framework on loading.
+      graphControl.setInputMode(new GraphEditorInputMode());
+    }
 
-  public GraphControl graphControl;
+    public void onLoaded() {
+        // Called right after stage is loaded.
+        graphControl.fitGraphBounds();
+    }
 
-  public void initialize() {
-    // Called by the JavaFX framework on loading.
-    IGraph graph = graphControl.getGraph();
+    public void handleOpenFolderAction(ActionEvent event) {
+        System.out.println("Hello, open folder!");
+    }
 
-    INode node1 = graph.createNode(new RectD(0, 0, 30, 30));
-    INode node2 = graph.createNode(new RectD(100, 0, 30, 30));
-    INode node3 = graph.createNode(new RectD(300, 300, 60, 30));
+    public void handleExportAction(ActionEvent event) {
+        ImageExport imageExport = new ImageExport();
+        imageExport.exportToJpg(graphControl, "exported");
+    }
 
-    IEdge edge1 = graph.createEdge(node1, node2);
-    IEdge edge2 = graph.createEdge(node2, node3);
+    
+    public void handleCreateEntityAction(ActionEvent event) {
+        Entity entity = new Entity();
+        entity.createTable(graphControl);
+    }
 
-    IBend bend1 = graph.addBend(edge2, new PointD(330, 15));
+    public void handleRelation1to1(ActionEvent event) {
+        System.out.println("Hello, set relation!");
+    }
 
-    IPort portAtNode1 = graph.addPort(node1);
-    IPort portAtNode3 = graph.addPort(node3, FreeNodePortLocationModel.NODE_LEFT_ANCHORED);
-    IEdge edgeAtPorts = graph.createEdge(portAtNode1, portAtNode3);
+    public void handleRelation1toN(ActionEvent event) {
+        System.out.println("Hello, set relation 2!");
+    }
 
-    ILabel ln1 = graph.addLabel(node1, "n1");
-    ILabel ln2 = graph.addLabel(node2, "n2");
-    ILabel ln3 = graph.addLabel(node3, "n3");
-    ILabel le3 = graph.addLabel(edgeAtPorts, "Edge at Ports");
-  }
-
-  public void onLoaded() {
-    // Called right after stage is loaded.
-    graphControl.fitGraphBounds();
-  }
+    public void handleRelation1NtoM(ActionEvent event) {
+        System.out.println("Hello, set relation 3!");
+    }
 }

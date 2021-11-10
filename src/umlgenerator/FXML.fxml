@@ -21,7 +21,7 @@
                </font>
             </Label>
             <Line endX="-71.0" endY="25.0" layoutX="186.0" layoutY="24.0" startX="-71.0" startY="-4.0" />
-            <Button layoutX="157.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+            <Button onAction="#handleOpenFolderAction"  layoutX="157.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
                  <tooltip><Tooltip text="Explorer un dossier" /></tooltip>
                 <graphic>
                     <ImageView>
@@ -29,7 +29,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button layoutX="223.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+            <Button onAction="#handleExportAction"  layoutX="223.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
                  <tooltip><Tooltip text="Exporter en tant que..." /></tooltip>
                 <graphic>
                     <ImageView>
@@ -37,7 +37,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button layoutX="290.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+            <Button onAction="#handleCreateEntityAction"  layoutX="290.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
                  <tooltip><Tooltip text="Créer une entité" /></tooltip>
                 <graphic>
                     <ImageView>
@@ -46,7 +46,7 @@
                 </graphic>
             </Button>
             <Line endX="-71.0" endY="26.0" layoutX="436.0" layoutY="23.0" startX="-71.0" startY="-4.0" />
-            <Button layoutX="409.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+            <Button onAction="#handleRelation1to1"  layoutX="409.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
                  <tooltip><Tooltip text="Relation One to One" /></tooltip>
                 <graphic>
                     <ImageView>
@@ -54,7 +54,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button layoutX="500.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+            <Button onAction="#handleRelation1toN"  layoutX="500.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
                  <tooltip><Tooltip text="Relation One to Many" /></tooltip>
                 <graphic>
                     <ImageView>
@@ -62,7 +62,7 @@
                     </ImageView>
                 </graphic>
             </Button>
-            <Button layoutX="582.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
+            <Button onAction="#handleRelation1NtoM"  layoutX="582.0" layoutY="19.0" mnemonicParsing="false" style="-fx-background-insets: -1.4,0,1,2; -fx-focus-color: transparent; -fx-background-size: 16px 16px; -fx-background-color: #fff;">
                  <tooltip><Tooltip text="Relation Many to Many" /></tooltip>
                 <graphic>
                     <ImageView>

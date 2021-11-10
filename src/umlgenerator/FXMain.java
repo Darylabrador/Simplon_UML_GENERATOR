@@ -18,7 +18,6 @@ import javafx.stage.Stage;
  * @author charl
  */
 public class FXMain extends Application {
-    
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/umlgenerator/FXML.fxml"));
@@ -37,5 +36,4 @@ public class FXMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }
