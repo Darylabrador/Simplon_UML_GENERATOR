@@ -52,14 +52,12 @@ public class FXMLController  {
     }
 
     public void handleExportAction(ActionEvent event) {
-        ImageExport imageExport = new ImageExport();
-        imageExport.exportToJpg(graphControl, "exported");
+        ImageExport.exportToJpg(graphControl, "exported_file");
     }
 
     
     public void handleCreateEntityAction(ActionEvent event) {
-        Entity entity = new Entity();
-        entity.createTable(graphControl);
+        Entity.createTable(graphControl);
     }
 
     public void handleRelation1to1(ActionEvent event) {

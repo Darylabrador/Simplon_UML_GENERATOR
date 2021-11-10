@@ -21,7 +21,7 @@ import com.yworks.yfiles.view.GraphControl;
  */
 public class Entity {
    
-    public void createTable(GraphControl graphControl) {
+    public static void createTable(GraphControl graphControl) {
         IGraph graph = graphControl.getGraph();
         ITable table = new Table();
         IColumn col1 = table.createColumn(200);

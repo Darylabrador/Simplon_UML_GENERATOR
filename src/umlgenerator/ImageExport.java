@@ -20,7 +20,7 @@ import javax.imageio.ImageIO;
  * @author charl
  */
 public class ImageExport {
-    public void exportToJpg(GraphControl graphControl, String filename) {
+    public static void exportToJpg(GraphControl graphControl, String filename) {
         // create a ContextConfigurator that specifies the region to export
         ContextConfigurator configuration = new ContextConfigurator(graphControl.getContentRect());
 
