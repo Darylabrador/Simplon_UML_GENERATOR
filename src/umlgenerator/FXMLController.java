@@ -23,7 +23,6 @@ import com.yworks.yfiles.graph.styles.TableNodeStyle;
 import com.yworks.yfiles.view.GraphControl;
 import com.yworks.yfiles.view.input.GraphEditorInputMode;
 import com.yworks.yfiles.view.input.MoveViewportInputMode;
-import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
@@ -38,13 +37,12 @@ public class FXMLController  {
     public GraphControl graphControl;
     
     public void initialize() {
-      // Called by the JavaFX framework on loading.
-      graphControl.setInputMode(new GraphEditorInputMode());
+        Graph.setGraphEditorInputMode(graphControl);
+        Graph.enabledCreatedEntityOnGraph(false);
     }
 
     public void onLoaded() {
-        // Called right after stage is loaded.
-        graphControl.fitGraphBounds();
+        Graph.fitGraph(graphControl);
     }
 
     public void handleOpenFolderAction(ActionEvent event) {
@@ -56,19 +54,26 @@ public class FXMLController  {
     }
 
     
-    public void handleCreateEntityAction(ActionEvent event) {
-        Entity.createTable(graphControl);
+    public void handleCreateEntityAction(ActionEvent event) {     
+        if(!Graph.isAllowedCreateNode()){
+            Graph.enabledCreatedEntityOnGraph(true);  
+        }  else {
+            Graph.enabledCreatedEntityOnGraph(false);  
+        }
     }
 
     public void handleRelation1to1(ActionEvent event) {
+        Graph.enabledCreatedEntityOnGraph(false);  
         System.out.println("Hello, set relation!");
     }
 
     public void handleRelation1toN(ActionEvent event) {
+        Graph.enabledCreatedEntityOnGraph(false);  
         System.out.println("Hello, set relation 2!");
     }
 
     public void handleRelation1NtoM(ActionEvent event) {
+        Graph.enabledCreatedEntityOnGraph(false);  
         System.out.println("Hello, set relation 3!");
     }
 }

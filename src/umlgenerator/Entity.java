@@ -20,7 +20,12 @@ import com.yworks.yfiles.view.GraphControl;
  * @author charl
  */
 public class Entity {
-   
+    public static boolean createMode = false;
+    
+    public static void enableCreate() {
+        createMode = !createMode;
+    }
+    
     public static void createTable(GraphControl graphControl) {
         IGraph graph = graphControl.getGraph();
         ITable table = new Table();
