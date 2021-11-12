@@ -4,28 +4,9 @@
  */
 package umlgenerator;
 
-import com.yworks.yfiles.geometry.IRectangle;
-import com.yworks.yfiles.geometry.InsetsD;
-import com.yworks.yfiles.geometry.PointD;
-import com.yworks.yfiles.geometry.RectD;
-import com.yworks.yfiles.graph.IBend;
-import com.yworks.yfiles.graph.IColumn;
-import com.yworks.yfiles.graph.IEdge;
-import com.yworks.yfiles.graph.IGraph;
-import com.yworks.yfiles.graph.ILabel;
-import com.yworks.yfiles.graph.INode;
-import com.yworks.yfiles.graph.IPort;
-import com.yworks.yfiles.graph.IRow;
-import com.yworks.yfiles.graph.ITable;
-import com.yworks.yfiles.graph.Table;
-import com.yworks.yfiles.graph.portlocationmodels.FreeNodePortLocationModel;
-import com.yworks.yfiles.graph.styles.TableNodeStyle;
 import com.yworks.yfiles.view.GraphControl;
-import com.yworks.yfiles.view.input.GraphEditorInputMode;
-import com.yworks.yfiles.view.input.MoveViewportInputMode;
-import java.util.ResourceBundle;
+import com.yworks.yfiles.view.input.ICommand;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 
 
 /**
@@ -37,8 +18,8 @@ public class FXMLController  {
     public GraphControl graphControl;
     
     public void initialize() {
+        graphControl.setFileIOEnabled(true);
         Graph.setGraphEditorInputMode(graphControl);
-        Graph.enabledCreatedEntityOnGraph(false);
     }
 
     public void onLoaded() {
@@ -46,34 +27,29 @@ public class FXMLController  {
     }
 
     public void handleOpenFolderAction(ActionEvent event) {
-        System.out.println("Hello, open folder!");
+        Graph.enabledInteractionBetweenNodes(false);
+        ICommand.OPEN.execute(null, graphControl);
     }
 
     public void handleExportAction(ActionEvent event) {
+        Graph.enabledInteractionBetweenNodes(false);
         ImageExport.exportToJpg(graphControl, "exported_file");
     }
 
-    
-    public void handleCreateEntityAction(ActionEvent event) {     
-        if(!Graph.isAllowedCreateNode()){
-            Graph.enabledCreatedEntityOnGraph(true);  
-        }  else {
-            Graph.enabledCreatedEntityOnGraph(false);  
-        }
+    public void handleCreateEntityAction(ActionEvent event) { 
+        Graph.enabledInteractionBetweenNodes(false);
+        Graph.enabledCreatedEntityOnGraph(graphControl); 
     }
 
-    public void handleRelation1to1(ActionEvent event) {
-        Graph.enabledCreatedEntityOnGraph(false);  
-        System.out.println("Hello, set relation!");
+    public void handleRelation1to1(ActionEvent event) { 
+        Graph.enabledInteractionBetweenNodes(true);
     }
 
     public void handleRelation1toN(ActionEvent event) {
-        Graph.enabledCreatedEntityOnGraph(false);  
-        System.out.println("Hello, set relation 2!");
+        Graph.enabledInteractionBetweenNodes(true);
     }
 
     public void handleRelation1NtoM(ActionEvent event) {
-        Graph.enabledCreatedEntityOnGraph(false);  
-        System.out.println("Hello, set relation 3!");
+        Graph.enabledInteractionBetweenNodes(true);
     }
 }

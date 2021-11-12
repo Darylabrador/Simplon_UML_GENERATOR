@@ -16,18 +16,27 @@ public class Graph {
     
     public static void setGraphEditorInputMode(GraphControl graphControl) {
         graphControl.setInputMode(graphEditorInputMode);
+        enabledCreateNode(false);
+        enabledInteractionBetweenNodes(false);
     }
     
     public static void fitGraph(GraphControl graphControl) {
         graphControl.fitGraphBounds();
     }
     
-    public static void enabledCreatedEntityOnGraph(boolean isEnabled) {
-        graphEditorInputMode.setCreateBendAllowed(isEnabled);
-        graphEditorInputMode.setCreateEdgeAllowed(isEnabled);
+    public static void enabledCreatedEntityOnGraph(GraphControl graphControl) {
+        Entity.createTable(graphControl);
+    }
+    
+    public static void enabledCreateNode(boolean isEnabled) {
         graphEditorInputMode.setCreateNodeAllowed(isEnabled);
     }
-
+    
+    public static void enabledInteractionBetweenNodes(boolean isEnabled){
+        graphEditorInputMode.setCreateBendAllowed(isEnabled);
+        graphEditorInputMode.setCreateEdgeAllowed(isEnabled);
+    }
+    
     public static boolean isAllowedCreateNode() {
         return graphEditorInputMode.isCreateNodeAllowed();
     }

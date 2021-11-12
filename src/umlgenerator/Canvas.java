@@ -13,5 +13,5 @@ import com.yworks.yfiles.view.input.ClickEventArgs;
  * @author charl
  */
 public class Canvas {
-    public static IEventHandler<ClickEventArgs> clickOnCanvas = (source, args) -> Graph.enabledCreatedEntityOnGraph(false);
+    public static IEventHandler<ClickEventArgs> clickOnCanvas = (source, args) -> log(args);
 }
